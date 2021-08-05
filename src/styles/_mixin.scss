@@ -1,0 +1,133 @@
+@mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-raduis;
+}
+
+@mixin button-style(
+  $background,
+  $border,
+  $color,
+  $hover-background: lighten($background, 7.5%),
+  $hover-border: lighten($border, 10%),
+  $hover-color: $color
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border-color: $border;
+  }
+}
+
+@mixin zoom-animation(
+  $direction: "top",
+  $scaleStart: scaleY(0),
+  $scaleEnd: scaleY(1),
+  $origin: center top
+) {
+  .zoom-in-#{$direction}-enter {
+    opacity: 0;
+    transform: $scaleStart;
+  }
+  .zoom-in-#{$direction}-enter-active {
+    opacity: 1;
+    transform: $scaleEnd;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+  .zoom-in-#{$direction}-exit {
+    opacity: 1;
+  }
+  .zoom-in-#{$direction}-exit-active {
+    opacity: 0;
+    transform: $scaleStart;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+    transform-origin: $origin;
+  }
+  // .zoom-in-#{$direction}-exit-done {
+  //   opacity: 0;
+  //   transform: $scaleStart;
+  // }
+}
+
+@mixin border-right-radius($raduis) {
+  border-top-right-radius: $raduis;
+  border-bottom-right-radius: $raduis;
+}
+
+@mixin border-left-radius($raduis) {
+  border-top-left-radius: $raduis;
+  border-bottom-left-radius: $raduis;
+}
+
+
+@mixin flex-lay($direction: row, $wrap: nowrap, $main: space-between, $cross: center) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+@mixin flex($main: space-between, $cross: center) {
+  display: flex;
+  justify-content: $main;
+  align-items: $cross;
+}
+@mixin size($width: 0px, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin lh($height: 34px, $lineHeight: $height) {
+  height: $height;
+  line-height: $lineHeight;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  *zoom: 1;
+}
+
+@mixin line-clamp($lines-to-show, $font-size, $line-height) {
+  display: block; // Fallback for non-webkit browsers
+  display: -webkit-box;
+  font-size: $font-size;
+  //height: ($font-size * $line-height * $lines-to-show); // Fallback for non-webkit browsers
+  line-height: $line-height;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines-to-show;
+}
+
+@mixin card-shadow {
+  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.13);
+  border-radius: 4px;
+}

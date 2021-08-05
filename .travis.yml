@@ -1,0 +1,43 @@
+language: node_js
+node_js:
+  - stable
+cache:
+  directions:
+    - node_modules
+env:
+  - CI=true
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv
+    -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
+  - git config --global user.name "wxrbwran"
+  - git config --global user.email "wxrbw@qq.com"
+install:
+  - yarn
+script:
+  - yarn test
+  - yarn build-storybook
+true:
+  branch: master
+after_success:
+  # normal deploy
+  # - ssh ubuntu@123.206.90.112 -p 22 'cd /home/ubuntu/sites/uikit
+  #   && git pull
+  #   && yarn
+  #   && yarn build-storybook
+  #   && rm -rf /var/www/uikit
+  #   && mkdir /var/www/uikit
+  #   && cp -R ./storybook-static/* /var/www/uikit'
+  # docker deploy
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t wxrbw/uikit:latest .
+  - docker push wxrbw/uikit:latest
+  - ssh ubuntu@123.206.90.112 '
+    docker pull wxrbw/uikit:latest
+    && docker stop xr-uikit
+    && docker rm xr-uikit
+    && docker run -d --name xr-uikit -p 8888:80 wxrbw/uikit
+    '

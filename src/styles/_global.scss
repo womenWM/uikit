@@ -1,0 +1,186 @@
+.ui_rightAddbtn {
+  display: inline-block;
+  padding: 0 2px;
+  height: 22px;
+  color: #007ADA;
+  border: 1px solid #007ADA;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  margin-right: 8px;
+  text-align: center;
+  .anticon-edit {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  .anticon {
+    vertical-align: middle;
+  }
+}
+
+.ant-modal-wrap-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mode_hide {
+  display: none!important;
+}
+.mode_block {
+  display: block!important;
+}
+// 全屏modal、化验单检查单审核图片时使用
+.ant-modal-wrap-full {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .ant-modal-header, .ant-modal-close {
+    display: none;
+  }
+  .ant-modal {
+    margin: 0;
+    height: 100%;
+  }
+  .ant-modal-content {
+    height: 100%;
+  }
+  .ant-modal-body {
+    padding: 0;
+    max-height: 100vh;
+  }
+}
+.ant-modal {
+  padding-bottom: 0;
+}
+.ant-modal-content {
+  border-radius: 5px;
+}
+.ant-modal-header {
+  padding: 0;
+  height: 50px;
+  background-color: #f5f5f5;
+  border: 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.ant-modal-body {
+  padding: 30px;
+  overflow-y: auto;
+  color: #000;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.ant-modal-title,
+.ant-modal-close-x {
+  line-height: 50px;
+  text-align: center;
+  color: #333;
+  font-size: 20px;
+}
+
+.ant-modal-close-x {
+  color: #979797;
+  font-size: 24px;
+}
+.ant-modal-close-x {
+  display: block;
+  width: 44px;
+  height: 44px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 44px;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+}
+
+.common__btn {
+  text-align: center;
+
+  button {
+    margin-right: 40px;
+    min-width: 130px;
+    height: 42px;
+    font-size: 16px;
+    border: 1px solid #007ada;
+    color: #007ada;
+    text-align: center;
+    border-radius: 2px;
+    border-radius: 2px;
+
+    &.finish {
+      margin-right: 0;
+      background-color: #007ada;
+      color: #fff;
+      // padding: 10px;
+      border-radius: 2px;
+    }
+  }
+
+  .ant-btn-primary {
+    color: #fff;
+  }
+}
+
+.ant-space {
+  display: inline-flex;
+}
+
+.flex {
+  display: flex;
+}
+
+// 关于表单，高度要设置42的
+#height42 {
+  &.ant-form {
+    .ant-form-item-control-input-content,
+    .ant-input {
+      line-height: 42px;
+      height: 42px;
+      font-size: 14px;
+    }
+    textarea {
+      &.ant-input {
+        line-height: 22px;
+      }
+    }
+    .ant-select-selector {
+      height: 42px;
+
+      .ant-select-selection-search-input {
+        line-height: 42px;
+        height: 42px;
+        font-size: 14px;
+      }
+    }
+
+    .ant-select-selection-item {
+      line-height: 42px;
+    }
+
+    .ant-select-selection-placeholder {
+      font-size: 14px;
+      color: #999999;
+      line-height: 42px;
+    }
+
+    label {
+      height: 42px;
+    }
+    .ant-input-number-input {
+      height: 42px;
+    }
+  }
+}
+
+.ui-wrap-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 10px;
+  >div {
+    padding: 10px 0;
+    background-color: #fff;
+  }
+}

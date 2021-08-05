@@ -1,0 +1,32 @@
+// @import '../../node_modules/antd/dist/antd.css';
+
+// config
+@import "./variables";
+
+@import "./reboot";
+
+@import "./mixin";
+
+@import "./animation";
+// button
+@import "../components/Button/style";
+
+@import "./global"; // 公共样式
+
+@import '../components/PatientTitle/style';
+
+@import '../components/PatientBasicInfo/Info/style';
+
+@import '../components/DragModal/BuildTitle/style';
+
+@import '../components/PatientBasicInfo/EditInfo/style';
+
+@import '../components/LatestHealth/Info/style';
+
+@import '../components/Diagnose/style';
+
+@import '../components/SearchHospital/style';
+
+@import '../components/PatientImages/style';
+
+@import '../components/MedicinePlans/style';

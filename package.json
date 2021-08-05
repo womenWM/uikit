@@ -1,0 +1,116 @@
+{
+  "name": "xzl-uikit",
+  "version": "0.0.1",
+  "private": false,
+  "description": "ui library for react",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://repo.xzlcorp.com/repository/nps-local/"
+  },
+  "keywords": [
+    "UI",
+    "React"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "start": "react-scripts start",
+    "lint": "eslint --ext js,ts,tsx src",
+    "build": "react-scripts build",
+    "build-project": "yarn clean && yarn build-ts && yarn build-css",
+    "test": "react-scripts test",
+    "test:nowatch": "CI=true react-scripts test",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "rimraf ./storybook-static && build-storybook -s public",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "prepublishOnly": "yarn test:nowatch && yarn lint && yarn build-project",
+    "fuzhi-pag": "yarn fuzhi package-dist.json dist/package.json",
+    "go": "npm run build-project && npm run fuzhi-pag && cd ./dist && npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "antd": "^4.16.1",
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "css-loader": "^5.2.6",
+    "dayjs": "^1.10.5",
+    "lodash": "^4.17.21",
+    "react-transition-group": "^4.4.1",
+    "style-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-ant-design": "^0.0.2",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.10",
+    "@types/jest": "^24.0.0",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-transition-group": "^4.4.0",
+    "@types/storybook__addon-info": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^5.0.13",
+    "fuzhi": "^1.0.0",
+    "husky": "^4.2.5",
+    "less-loader": "^9.0.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-docgen-typescript": "2.0.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.2",
+    "typescript": "4.2.4",
+    "url-loader": "^4.1.1",
+    "webpack-combine-loaders": "^2.0.4"
+  }
+}

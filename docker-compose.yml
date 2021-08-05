@@ -1,0 +1,9 @@
+version: "3.3" # 这个是配置文件的版本，不同的版本号声明方式会有细微的不同
+services:
+  ui-web:
+    # 指定容器名称后，该服务将无法进行扩展（scale），因为 Docker 不允许多个容器具有相同的名称。
+    # container_name: xr-uikit
+    image: wxrbw/uikit:latest
+    ports:
+      - "8082:80"
+    restart: always

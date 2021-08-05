@@ -1,0 +1,6 @@
+Host tyx
+Host 123.206.90.112
+User travis
+StrictHostKeyChecking no
+IdentityFile ~/.ssh/id_rsa
+IdentitiesOnly yes
