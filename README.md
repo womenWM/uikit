@@ -6,6 +6,8 @@
  - jest
  - travis
  - docker
+ 
+ - 本
 
  <!-- 
  本地启动1
@@ -40,5 +42,6 @@
  package.json删除掉xzl仓库地址publishConfig
  备注：
  直接执行npm go有可能会发布失败，可依次执行1，2，3，4步骤
+
   -->
   
